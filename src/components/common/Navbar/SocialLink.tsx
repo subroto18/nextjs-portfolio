@@ -1,11 +1,22 @@
-import React from 'react'
+import { SocialLinks } from "@/types/socialLink";
+import React from "react";
 
-const SocialLink = () => {
+const SocialLink = ({ links }: SocialLinks) => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <>
+      {links?.map((item) => {
+        return (
+          <a
+            href={item.link}
+            className="mr-3 mt-4 text-white cursor-pointer"
+            key={item.id}
+          >
+            {item.icon}
+          </a>
+        );
+      })}
+    </>
+  );
+};
 
-export default SocialLink
+export default SocialLink;

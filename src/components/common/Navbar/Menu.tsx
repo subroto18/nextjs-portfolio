@@ -1,5 +1,6 @@
-import Link from "next/link";
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 
 type MenuItem = {
   id: number;
@@ -12,17 +13,25 @@ type MenuProps = {
 };
 
 const Menu = ({ menuList }: MenuProps) => {
+  const [activeSection, setActiveSection] = useState(menuList[0]);
+
+  const handleClick = (item: MenuItem) => {
+    setActiveSection(item);
+  };
+
   return (
     <>
       {menuList?.map((item) => {
         return (
-          <Link
-            className="mt-3 mr-4 font-semibold text-sm"
-            href={item.link}
+          <button
+            className={`mt-3 mr-4 font-semibold text-sm text-white cursor-pointer ${
+              activeSection.title === item.title && "border-b-4 border-red-500"
+            }`}
             key={item.id}
+            onClick={() => handleClick(item)}
           >
             {item.title}
-          </Link>
+          </button>
         );
       })}
     </>

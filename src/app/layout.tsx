@@ -2,10 +2,18 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./context/ThemeProvider";
+import { Montserrat } from "next/font/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+  weight: ["400", "500", "700"], // add the weights you want
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
@@ -27,7 +35,7 @@ export default function RootLayout({
     <ThemeProvider>
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased `}
+          className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable}  antialiased `}
         >
           {children}
         </body>

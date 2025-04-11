@@ -5,6 +5,9 @@ import { FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import Img from "../../ui/Img";
 import Menu from "./Menu";
+import SocialLink from "./SocialLink";
+
+import { Link } from "@/types/socialLink";
 
 type Menu = {
   id: number;
@@ -24,9 +27,19 @@ async function getMenu(): Promise<Menu[]> {
   return data;
 }
 
+async function getSocialLink(): Promise<Link[]> {
+  const data = [
+    { id: 1, title: "", icon: <FaFacebookF />, link: "#" },
+    { id: 2, title: "", icon: <FaLinkedinIn />, link: "#" },
+    { id: 3, title: "", icon: <FaInstagram />, link: "#" },
+    { id: 4, title: "", icon: <FaTwitter />, link: "#" },
+  ];
+  return data;
+}
+
 const Navbar = async () => {
   const menuList = await getMenu();
-
+  const socialLinkList = await getSocialLink();
   return (
     <header className="bg-slate-600 ">
       <nav className="grid grid-cols-12 gap-2 p-2 w-[80%] m-auto">
@@ -43,21 +56,7 @@ const Navbar = async () => {
         </ul>
 
         <ul className="flex ">
-          <li>
-            <FaFacebookF />
-          </li>
-          <li>
-            <FaLinkedinIn />
-          </li>
-          <li>
-            <FaLinkedinIn />
-          </li>
-          <li>
-            <FaInstagram />
-          </li>
-          <li>
-            <FaTwitter />
-          </li>
+          <SocialLink links={socialLinkList} />
         </ul>
       </nav>
     </header>
