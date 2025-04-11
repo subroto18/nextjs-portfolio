@@ -31,3 +31,12 @@ html {
   transition: background-color 0.3s ease, color 0.3s ease;
   font-family: "Montserrat", sans-serif;
 }
+
+.heading {
+  color: #ededed;
+  font-size: 3rem;
+  font-weight: bold;
+}
+.description {
+  color: #7e7f88;
+}

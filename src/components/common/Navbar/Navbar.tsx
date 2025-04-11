@@ -40,9 +40,11 @@ async function getSocialLink(): Promise<Link[]> {
 const Navbar = async () => {
   const menuList = await getMenu();
   const socialLinkList = await getSocialLink();
+  //
+  // bg-[#191919]
   return (
-    <header className="bg-slate-600 ">
-      <nav className="grid grid-cols-12 gap-2 p-2 w-[80%] m-auto">
+    <header className=" fixed  ">
+      <nav className="grid grid-cols-12 gap-2 p-4 w-[80%] m-auto">
         <div>
           <Img
             width={50}
@@ -55,7 +57,7 @@ const Navbar = async () => {
           <Menu menuList={menuList} />
         </ul>
 
-        <ul className="flex ">
+        <ul className="flex mt-4">
           <SocialLink links={socialLinkList} />
         </ul>
       </nav>

@@ -24,7 +24,7 @@ const Menu = ({ menuList }: MenuProps) => {
       {menuList?.map((item) => {
         return (
           <button
-            className={`mt-3 mr-4 font-semibold text-sm text-white cursor-pointer ${
+            className={`mr-4 font-semibold text-sm text-white cursor-pointer ${
               activeSection.title === item.title && "border-b-4 border-red-500"
             }`}
             key={item.id}
