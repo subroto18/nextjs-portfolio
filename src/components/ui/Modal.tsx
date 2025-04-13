@@ -1,18 +1,23 @@
 "use client";
 
-import { modalState } from "@/atoms/modalAtom";
-import { Button, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { Dialog, DialogPanel } from "@headlessui/react";
 
-export default function Modal() {
-  function close() {
-    // setIsOpen(false);
-  }
-
+export default function Modal({
+  isOpen,
+  setIsOpen,
+  children,
+}: {
+  isOpen?: boolean;
+  setIsOpen: () => void;
+  children: React.ReactNode;
+}) {
+  const close = () => {
+    setIsOpen(false);
+  };
   return (
     <>
       <Dialog
-        open={false}
+        open={isOpen}
         as="div"
         className="relative z-10 focus:outline-none"
         onClose={close}
@@ -24,24 +29,14 @@ export default function Modal() {
               transition
               className="w-full max-w-md rounded-xl bg-white/5 p-6 backdrop-blur-2xl duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
             >
-              <DialogTitle
-                as="h3"
-                className="text-base/7 font-medium text-white"
+              <button
+                onClick={() => setIsOpen(false)}
+                className="absolute right-4 top-4 text-gray-400 hover:text-gray-600 cursor-pointer"
               >
-                Payment successful
-              </DialogTitle>
-              <p className="mt-2 text-sm/6 text-white/50">
-                Your payment has been successfully submitted. We’ve sent you an
-                email with all of the details of your order.
-              </p>
-              <div className="mt-4">
-                <Button
-                  className="inline-flex items-center gap-2 rounded-md bg-gray-700 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[focus]:outline-1 data-[focus]:outline-white data-[open]:bg-gray-700"
-                  onClick={close}
-                >
-                  Got it, thanks!
-                </Button>
-              </div>
+                ✕
+              </button>
+
+              {children}
             </DialogPanel>
           </div>
         </div>

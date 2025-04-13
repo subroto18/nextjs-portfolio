@@ -1,9 +1,8 @@
-// app/providers/RecoilProvider.tsx
-"use client";
+"use client"; // MUST be first line
 
 import { RecoilRoot } from "recoil";
 
-export default function RecoilProvider({
+export default function RecoilContextProvider({
   children,
 }: {
   children: React.ReactNode;

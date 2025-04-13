@@ -1,0 +1,43 @@
+/* RightDrawer.module.css */
+
+/* Position and size of the burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 28px;
+  height: 22px;
+  right: 20px;
+  top: 20px;
+  z-index: 1000;
+}
+
+/* Color of burger bars */
+.bm-burger-bars {
+  background: #ffffff;
+}
+
+/* Cross button position and style */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+.bm-cross {
+  background: #ffffff;
+}
+
+/* Menu wrap and full height */
+.bm-menu-wrap {
+  top: 0;
+  height: 100%;
+}
+
+/* Sidebar panel */
+.bm-menu {
+  background: #1f2937; /* Tailwind gray-800 */
+  padding: 2rem 1rem;
+  font-size: 1.1rem;
+}
+
+/* Overlay background */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.4);
+}

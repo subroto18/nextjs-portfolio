@@ -1,50 +1,49 @@
-import React from "react";
-import { FaFacebookF } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
+"use client";
+import React, { useEffect, useState } from "react";
+
 import Img from "../../ui/Img";
-import Menu from "./Menu";
+import MenuList from "./Menu";
 import SocialLink from "./SocialLink";
-
+import { Menu } from "@/types/menu";
 import { Link } from "@/types/socialLink";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { useMenuStore } from "@/store/useMenuStore";
+import HumbergerMenu from "./HumbergerMenu";
 
-type Menu = {
-  id: number;
-  title: string;
-  link: string;
-};
+const Navbar = ({
+  menuList,
+  socialLinkList,
+}: {
+  menuList: Menu[];
+  socialLinkList: Link[];
+}) => {
+  const [scrolled, setScroled] = useState(false);
+  const { setIsOpen } = useMenuStore();
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setScroled(true);
+      } else {
+        setScroled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-async function getMenu(): Promise<Menu[]> {
-  const data = [
-    { id: 1, title: "Home", link: "#home" },
-    { id: 2, title: "About", link: "#about" },
-    { id: 3, title: "Service", link: "#service" },
-    { id: 4, title: "Portfolio", link: "#portfolio" },
-    { id: 5, title: "Blog", link: "#blog" },
-    { id: 6, title: "Contact", link: "#contact" },
-  ];
-  return data;
-}
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
-async function getSocialLink(): Promise<Link[]> {
-  const data = [
-    { id: 1, title: "", icon: <FaFacebookF />, link: "#" },
-    { id: 2, title: "", icon: <FaLinkedinIn />, link: "#" },
-    { id: 3, title: "", icon: <FaInstagram />, link: "#" },
-    { id: 4, title: "", icon: <FaTwitter />, link: "#" },
-  ];
-  return data;
-}
-
-const Navbar = async () => {
-  const menuList = await getMenu();
-  const socialLinkList = await getSocialLink();
-  //
-  // bg-[#191919]
   return (
-    <header className=" fixed  ">
-      <nav className="grid grid-cols-12 gap-2 p-4 w-[80%] m-auto">
+    <header
+      className={` ${
+        scrolled
+          ? "fixed bg-[#191919] transition duration-300 z-1 w-full"
+          : "absolute w-full"
+      }  `}
+    >
+      <nav className="grid grid-cols-2 md:grid-cols-12 gap-2 p-4 w-[80%] m-auto">
         <div>
           <Img
             width={50}
@@ -53,13 +52,19 @@ const Navbar = async () => {
           />
         </div>
 
-        <ul className="col-span-10 flex justify-start">
-          <Menu menuList={menuList} />
+        <ul className="hidden col-span-10 md:flex justify-start">
+          <MenuList menuList={menuList} />
         </ul>
 
-        <ul className="flex mt-4">
+        <ul className="flex mt-4 justify-end">
           <SocialLink links={socialLinkList} />
+          <GiHamburgerMenu
+            onClick={() => setIsOpen(true)}
+            className="text-white ml-5 cursor-pointer"
+          />
         </ul>
+
+        <HumbergerMenu menuList={menuList} />
       </nav>
     </header>
   );

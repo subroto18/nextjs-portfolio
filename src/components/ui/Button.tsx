@@ -3,15 +3,16 @@ import React from "react";
 type buttonProps = {
   className?: string;
   onClick?: () => void;
-  text: string;
+  text?: string;
+  children: React.ReactNode;
 };
 
-const Button = ({ className, onClick, text }: buttonProps) => {
+const Button = ({ className, onClick, children }: buttonProps) => {
   return (
     <button
-      className={`px-5 py-2 border border-white text-white bg-transparent rounded transition-all duration-300 hover:bg-[#f8044d] hover:text-white hover:-translate-y-1 hover:shadow-lg ${className} `}
+      className={`px-5 py-2 border border-white text-white rounded  hover:bg-[#f8044d] hover:text-white transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer ${className} `}
     >
-      {text}
+      {children}
     </button>
   );
 };

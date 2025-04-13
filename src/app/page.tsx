@@ -1,15 +1,21 @@
-import Navbar from "@/components/common/Navbar/Navbar";
+import Footer from "@/components/common/Footer";
+import Navbar from "@/components/common/Navbar/Index";
 import About from "@/components/sections/About/About";
-import Hero from "@/components/sections/Hero";
+import Contact from "@/components/sections/Contact/Contact";
+import Hero from "@/components/sections/Hero/Hero";
 import Portfolio from "@/components/sections/Portfolio/Portfolio";
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Navbar />
-      <Hero />
-      <About />
-      <Portfolio />
-    </main>
+      <main>
+        <Hero />
+        <About />
+        <Portfolio />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }

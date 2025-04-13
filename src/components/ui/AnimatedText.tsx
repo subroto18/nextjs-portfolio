@@ -1,4 +1,3 @@
-// components/AnimatedText.tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -39,8 +38,6 @@ export default function AnimatedText({
     }, interval);
     return () => clearTimeout(timeout);
   }, [index]);
-
-  console.log(index);
 
   return (
     <motion.div

@@ -8,7 +8,7 @@ const SocialLink = ({ links }: SocialLinks) => {
         return (
           <a
             href={item.link}
-            className="mr-3  text-white cursor-pointer"
+            className="mr-5  text-white cursor-pointer transition-transform duration-300 hover:-translate-y-1"
             key={item.id}
           >
             {item.icon}

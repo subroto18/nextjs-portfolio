@@ -1,7 +1,6 @@
 "use client";
 import { careerSummaryType } from "@/types/careerSummary";
 import React, { useState } from "react";
-// #ff0044
 
 type CareerSummaryProps = {
   data: careerSummaryType[];
@@ -32,13 +31,13 @@ const CareerSummary = ({ data }: CareerSummaryProps) => {
   return (
     <div className="my-5">
       <div>
-        <ul className="flex">
+        <ul className="md:flex">
           {categories?.map((item) => {
             return (
               <li
                 key={item}
                 onClick={() => setActiveTab(item)}
-                className="mr-5 font-semibold  relative inline-block group cursor-pointer"
+                className="mr-5 mb-2 text-sm  font-semibold  relative inline-block group cursor-pointer"
               >
                 <span className={`${activeTab == item && "text-[#ff0044]"}`}>
                   {item}

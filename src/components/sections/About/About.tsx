@@ -90,18 +90,19 @@ async function getCareerSummary(): Promise<careerSummaryType[]> {
 
 const About = async () => {
   const data = await getCareerSummary();
+
   return (
     <section id="about" className="bg-[#191919] ">
-      <div className="grid grid-cols-3 w-[80%] m-auto py-[5rem]">
+      <div className="grid grid-cols-1 md:grid-cols-3 w-[80%] m-auto py-[5rem]">
         <div className="">
           <Img
             className="rounded"
             src="https://trydo.rainbowit.net/assets/images/about/about-8.jpg"
           />
         </div>
-        <div className="col-span-2 py-5 px-[4rem] text-white">
-          <h1 className="heading">About Me</h1>
-          <p className="description">
+        <div className="col-span-2 py-5 md:px-[4rem] text-white">
+          <h1 className="text-[#ededed]  text-4xl md:text-5xl  ">About Me</h1>
+          <p className="description my-2">
             There are many variations of passages of Lorem Ipsum available, but
             the majority have suffered <a href="#">alteration</a> in some form,
             by injected humour, or randomised words which dont look even
