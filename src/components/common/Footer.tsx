@@ -7,7 +7,7 @@ import { FaTwitter } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className="bg-black py-5">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-[80%] m-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-[90%] m-auto">
         <div>
           <ul className="flex justify-center">
             <li className="border-2 rounded-full border-[#9a9ba6] p-3 mr-3 hover:bg-[#f9004d] hover:border-[#f9004d]  group cursor-pointer">

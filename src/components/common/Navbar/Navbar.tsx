@@ -43,7 +43,7 @@ const Navbar = ({
           : "absolute w-full"
       }  `}
     >
-      <nav className="grid grid-cols-2 md:grid-cols-12 gap-2 p-4 w-[80%] m-auto">
+      <nav className="grid grid-cols-2 md:grid-cols-12 gap-2 p-5 w-[95%] m-auto">
         <div>
           <Img
             width={50}

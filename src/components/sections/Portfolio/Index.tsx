@@ -1,6 +1,4 @@
 import React from "react";
-import Hero from "./Hero";
-import { heroContent } from "@/types/hero";
 
 export const revalidate = 86400; // revalidate every hour
 
@@ -17,10 +15,8 @@ export const getHeroContent = async (): Promise<heroContent> => {
   return data;
 };
 
-const Index = async () => {
-  const response = await getHeroContent();
-
-  return <Hero data={response} />;
+const Index = () => {
+  return <div></div>;
 };
 
 export default Index;

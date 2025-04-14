@@ -5,7 +5,7 @@ import Button from "@/components/ui/Button";
 const Portfolio = () => {
   return (
     <section id="portfolio" className="bg-[#101010] py-[5rem]">
-      <div className="w-[80%] m-auto">
+      <div className="w-[90%] m-auto">
         <h1 className=" text-[#ededed]  text-4xl md:text-5xl font-bold text-center mb-5">
           My Latest Project
         </h1>

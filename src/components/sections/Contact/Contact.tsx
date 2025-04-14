@@ -15,7 +15,7 @@ const Contact = () => {
 
   return (
     <section ref={ref} id="contact" className="bg-[#191919]  py-5">
-      <div className="grid md:grid-cols-2 gap-4 w-[80%] m-auto py-5 order-2 md:order-1">
+      <div className="grid md:grid-cols-2 gap-4 w-[90%] m-auto py-5 order-2 md:order-1">
         <Form />
         <div className="flex justify-end w-full order-1 md:order-2">
           <Img
